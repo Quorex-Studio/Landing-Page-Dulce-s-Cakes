@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce's Cakes | Amor y Azúcar</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pastelería artesanal venezolana con sabor irresistible. Disfruta de nuestras marquesas, tres leches, y tortas personalizadas hechas con amor.">
+    <link rel="icon" href="assets/logo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bubblegum: #f9a8c9;
+            --fuchsia: #e0479e;
+            --hot: #d63384;
+            --soft-pink: #fce4ef;
+            --cream: #fff7f2;
+            --dark-pink: #8b1a5a;
+            --white: #ffffff;
+            --shadow: rgba(224, 71, 158, 0.15);
+        }
+
+        /* Base & Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bubblegum);
+            color: var(--dark-pink);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Typography */
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .italic-font {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 1. NAV */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(249, 168, 201, 0.5); /* bubblegum with opacity */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--hot);
+        }
+
+        /* 2. HERO */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 1rem;
+            overflow: hidden;
+        }
+
+        /* Floating Bubbles */
+        .bubble {
+            position: absolute;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-30px) translateX(20px); }
+            50% { transform: translateY(-50px) translateX(-20px); }
+            75% { transform: translateY(-20px) translateX(30px); }
+        }
+
+        .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; top: 20%; animation-duration: 18s; }
+        .bubble:nth-child(2) { width: 120px; height: 120px; right: 15%; top: 10%; animation-duration: 22s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 20%; bottom: 15%; animation-duration: 12s; }
+        .bubble:nth-child(4) { width: 100px; height: 100px; right: 10%; bottom: 20%; animation-duration: 25s; }
+
+        .hero-logo-badge {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            padding: 10px;
+            background: var(--white);
+            box-shadow: 0 10px 40px var(--shadow);
+            animation: pulse 4s infinite ease-in-out;
+            margin-bottom: 2rem;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 40px var(--shadow); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 50px var(--shadow); }
+        }
+
+        .hero-logo-badge img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 0.85;
+            margin-bottom: 1rem;
+            text-shadow: 4px 4px 20px var(--shadow);
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--dark-pink);
+            margin-bottom: 2.5rem;
+            z-index: 2;
+        }
+
+        /* Floating Pills */
+        .product-pill {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px var(--shadow);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            z-index: 3;
+            animation: pillFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes pillFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .product-pill img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .pill-1 { top: 25%; left: 15%; animation-delay: 0s; }
+        .pill-2 { top: 15%; right: 20%; animation-delay: 1.5s; }
+        .pill-3 { bottom: 25%; left: 20%; animation-delay: 3s; }
+        .pill-4 { bottom: 15%; right: 15%; animation-delay: 4.5s; }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--hot);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--hot);
+        }
+
+        /* 3. MARQUEE */
+        .marquee {
+            background: var(--hot);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            align-items: center;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .marquee-sep {
+            font-size: 1.2rem;
+        }
+
+        /* 4. PRODUCT GRID */
+        .products {
+            padding: 8rem 5% 10rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark-pink);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(224, 71, 158, 0.1);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bubblegum), var(--fuchsia), var(--hot));
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.15);
+            border-color: var(--soft-pink);
+        }
+
+        .card-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--cream);
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.1);
+        }
+
+        .card-name {
+            font-size: 1.6rem;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--fuchsia);
+        }
+
+        /* 5. NOSOTRAS */
+        .about {
+            padding: 8rem 5%;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-logo-pulse {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 60px var(--shadow);
+            animation: pulse 5s infinite ease-in-out;
+            border: 8px solid var(--white);
+        }
+
+        .about-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark-pink);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-pink);
+        }
+
+        .about-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .badge {
+            background: var(--white);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--hot);
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid var(--soft-pink);
+        }
+
+        /* 6. CTA FINAL */
+        .cta-final {
+            padding: 10rem 5%;
+            background: var(--fuchsia);
+            background: radial-gradient(circle at center, var(--white) -150%, var(--fuchsia) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final h2 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 3rem;
+            line-height: 1;
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-ig {
+            background: var(--white);
+            color: var(--fuchsia);
+        }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* 7. FOOTER */
+        footer {
+            background: var(--dark-pink);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            font-size: 0.9rem;
+            color: var(--white);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* simple mobile version */
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .product-pill {
+                display: none;
+            }
+
+            .about {
+                text-align: center;
+            }
+
+            .about-logo-pulse {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-badges {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <header id="inicio">
+        <div class="nav-brand">
+            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes" class="nav-logo">
+            <span class="brand-font italic-font" style="font-size: 1.5rem; color: var(--hot);">Dulce's Cakes</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#postres" class="nav-link">POSTRES</a>
+            <a href="#nosotras" class="nav-link">NOSOTRAS</a>
+            <a href="#pedido" class="nav-link">PEDIR</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+
+        <div class="product-pill pill-1">
+            <img src="assets/marquesas.jpeg" alt="Marquesas">
+            <span>Marquesas</span>
+        </div>
+        <div class="product-pill pill-2">
+            <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches">
+            <span>Tres Leches</span>
+        </div>
+        <div class="product-pill pill-3">
+            <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate">
+            <span>Torta</span>
+        </div>
+        <div class="product-pill pill-4">
+            <img src="assets/chocoflan.jpeg" alt="Chocoflan">
+            <span>Chocoflan</span>
+        </div>
+
+        <div class="hero-logo-badge">
+            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes">
+        </div>
+        
+        <h1 class="hero-title">Dulce's<br>Cakes</h1>
+        <p class="hero-subtitle italic-font">Postres artesanales con sabor irresistible</p>
+        
+        <div class="hero-ctas">
+            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-primary">Hacer Pedido</a>
+            <a href="#postres" class="btn btn-outline">Ver Postres</a>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <!-- Repeated for seamless loop -->
+            <div class="marquee-item">MARQUESAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TRES LECHES TRADICIONAL <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCOFLAN <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">BOMBA <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TORTAS PERSONALIZADAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">QUESILLOS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">GALLETAS RELLENAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TORTA DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">FRESAS CON CREMA <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TRES LECHES DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCOFLAN ESPECIAL <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCO-CHANTILLY <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">QUESILLO <span class="marquee-sep">🌸</span></div>
+            <!-- Second half -->
+            <div class="marquee-item">MARQUESAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TRES LECHES TRADICIONAL <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCOFLAN <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">BOMBA <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TORTAS PERSONALIZADAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">QUESILLOS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">GALLETAS RELLENAS <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TORTA DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">FRESAS CON CREMA <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">TRES LECHES DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCOFLAN ESPECIAL <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">CHOCO-CHANTILLY <span class="marquee-sep">🌸</span></div>
+            <div class="marquee-item">QUESILLO <span class="marquee-sep">🌸</span></div>
+        </div>
+    </div>
+
+    <!-- GRID -->
+    <section class="products" id="postres">
+        <div class="section-header">
+            <h2 class="italic-font">Hechos con amor artesanal</h2>
+            <p class="italic-font" style="font-size: 1.4rem; color: var(--fuchsia);">Cada bocado cuenta una historia de dulzura y tradición.</p>
+        </div>
+        
+        <div class="product-grid">
+            <div class="card">
+                <img src="assets/marquesas.jpeg" alt="Marquesas" class="card-img">
+                <h3 class="card-name">Marquesas</h3>
+                <p class="card-desc">Capas de galleta María envueltas en la crema más sedosa.</p>
+            </div>
+            <div class="card">
+                <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches Tradicional" class="card-img">
+                <h3 class="card-name">Tres Leches Tradicional</h3>
+                <p class="card-desc">El clásico esponjoso, bañado en nuestra infusión secreta.</p>
+            </div>
+            <div class="card">
+                <img src="assets/chocoflan.jpeg" alt="Chocoflan" class="card-img">
+                <h3 class="card-name">Chocoflan</h3>
+                <p class="card-desc">Doble placer: flan cremoso sobre un pastel de chocolate intenso.</p>
+            </div>
+            <div class="card">
+                <img src="assets/bomba.jpeg" alt="Bomba" class="card-img">
+                <h3 class="card-name">Bomba</h3>
+                <p class="card-desc">Explosión de crema pastelera en cada mordisco.</p>
+            </div>
+            <div class="card">
+                <img src="assets/tortas_personalizadas.jpeg" alt="Tortas Personalizadas" class="card-img">
+                <h3 class="card-name">Tortas Personalizadas</h3>
+                <p class="card-desc">Convertimos tus sueños en una obra de arte comestible.</p>
+            </div>
+            <div class="card">
+                <img src="assets/quesillos.jpeg" alt="Quesillos" class="card-img">
+                <h3 class="card-name">Quesillos</h3>
+                <p class="card-desc">Textura perfecta con el toque justo de caramelo artesanal.</p>
+            </div>
+            <div class="card">
+                <img src="assets/galletas_rellenas_de_chocolate.jpeg" alt="Galletas Rellenas de Chocolate" class="card-img">
+                <h3 class="card-name">Galletas Rellenas</h3>
+                <p class="card-desc">Crujientes por fuera, con trozos reales de puro chocolate.</p>
+            </div>
+            <div class="card">
+                <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate" class="card-img">
+                <h3 class="card-name">Torta de Chocolate</h3>
+                <p class="card-desc">Pastel de chocolate intenso, esponjoso y lleno de sabor.</p>
+            </div>
+            <div class="card">
+                <img src="assets/fresas_con_crema.jpeg" alt="Fresas con Crema" class="card-img">
+                <h3 class="card-name">Fresas con Crema</h3>
+                <p class="card-desc">Frescura y dulzura en cada bocado de pura crema.</p>
+            </div>
+            <div class="card">
+                <img src="assets/tres_leches_de_chocolate.jpeg" alt="Tres Leches de Chocolate" class="card-img">
+                <h3 class="card-name">Tres Leches de Chocolate</h3>
+                <p class="card-desc">Nuestra versión achocolatada del postre más amado.</p>
+            </div>
+            <div class="card">
+                <img src="assets/chocoflan2.jpeg" alt="Chocoflan Especial" class="card-img">
+                <h3 class="card-name">Chocoflan Especial</h3>
+                <p class="card-desc">Una variación única de nuestro postre imposible.</p>
+            </div>
+            <div class="card">
+                <img src="assets/torta_de_chocolate_con_chantilly_de_chocolate.jpeg" alt="Choco-Chantilly" class="card-img">
+                <h3 class="card-name">Choco-Chantilly</h3>
+                <p class="card-desc">Exquisita torta con una suave nube de chantilly.</p>
+            </div>
+            <div class="card">
+                <img src="assets/quesillo.jpeg" alt="Quesillo" class="card-img">
+                <h3 class="card-name">Quesillo</h3>
+                <p class="card-desc">La tradición venozolana que nunca falla en tu mesa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTRAS -->
+    <section class="about" id="nosotras">
+        <img src="assets/logo.jpeg" alt="Dulce's Cakes Historia" class="about-logo-pulse">
+        <div class="about-content">
+            <h2 class="italic-font">Postres que enamoran</h2>
+            <p class="italic-font">Somos una pastelería artesanal dedicada a rescatar los sabores más dulces de nuestra tierra. Cada receta ha sido perfeccionada para ofrecerte una experiencia premium, hecha a mano y siempre con los mejores ingredientes.</p>
+            <div class="about-badges">
+                <span class="badge">100% ARTESANAL</span>
+                <span class="badge">PEDIDOS PERSONALIZADOS</span>
+                <span class="badge">A DOMICILIO</span>
+                <span class="badge">HECHO CON AMOR</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="pedido">
+        <h2 class="italic-font">¿Lista para endulzar tu día?</h2>
+        <div class="cta-btns">
+            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-wa">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" class="btn btn-ig">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo italic-font">Dulce's Cakes</div>
+        <div class="footer-links">
+            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" class="footer-link italic-font">@dulce_scakes19</a>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2024 Dulce's Cakes. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
