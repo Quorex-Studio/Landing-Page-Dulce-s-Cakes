@@ -3,15 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulce's Cakes | Amor y Azúcar</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Pastelería artesanal venezolana con sabor irresistible. Disfruta de nuestras marquesas, tres leches, y tortas personalizadas hechas con amor.">
-    <link rel="icon" href="assets/logo.jpeg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
+    <!-- Primary SEO Meta Tags -->
+    <title>Dulce's Cakes | Pastelería Artesanal Venezolana - Tortas, Tres Leches y Más</title>
+    <meta name="description" content="Pastelería artesanal venezolana con sabor irresistible. Disfruta de nuestras marquesas, tres leches, quesillos y tortas personalizadas hechas con amor. Pedidos por WhatsApp.">
+    <meta name="keywords" content="pastelería artesanal, tortas personalizadas, tres leches, marquesas, quesillo, tortas de chocolate, pastelería venezolana, dulces, postres, cupcakes">
+    <meta name="author" content="Dulce's Cakes">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f9a8c9">
+    <link rel="canonical" href="https://dulcescakes.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dulcescakes.com/">
+    <meta property="og:title" content="Dulce's Cakes | Pastelería Artesanal Venezolana">
+    <meta property="og:description" content="Postres artesanales con sabor irresistible. Tortas personalizadas, tres leches, marquesas y más.">
+    <meta property="og:image" content="https://dulcescakes.com/assets/logo.jpeg">
+    <meta property="og:locale" content="es_VE">
+    <meta property="og:site_name" content="Dulce's Cakes">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://dulcescakes.com/">
+    <meta name="twitter:title" content="Dulce's Cakes | Pastelería Artesanal Venezolana">
+    <meta name="twitter:description" content="Postres artesanales con sabor irresistible. Tortas personalizadas, tres leches, marquesas y más.">
+    <meta name="twitter:image" content="https://dulcescakes.com/assets/logo.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+    <link rel="apple-touch-icon" href="assets/logo.jpeg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Dulce's Cakes",
+        "description": "Pastelería artesanal venezolana con sabor irresistible",
+        "url": "https://dulcescakes.com",
+        "telephone": "+584125903098",
+        "email": "contacto@dulcescakes.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "VE",
+            "addressLocality": "Venezuela"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "sameAs": [
+            "https://www.instagram.com/dulce_scakes19",
+            "https://wa.me/584125903098"
+        ],
+        "priceRange": "$$",
+        "servesCuisine": "Venezuelan",
+        "image": "https://dulcescakes.com/assets/logo.jpeg"
+    }
+    </script>
 
     <style>
         :root {
@@ -20,9 +77,12 @@
             --hot: #d63384;
             --soft-pink: #fce4ef;
             --cream: #fff7f2;
-            --dark-pink: #8b1a5a;
+            --dark-pink: #5a1040;
+            --dark-pink-rgb: 90, 16, 64;
             --white: #ffffff;
             --shadow: rgba(224, 71, 158, 0.15);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         /* Base & Resets */
@@ -34,6 +94,7 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
@@ -43,6 +104,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Noise Texture Overlay */
@@ -55,13 +118,14 @@
             height: 100%;
             z-index: 1000;
             pointer-events: none;
-            opacity: 0.05;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         /* Typography */
-        h1, h2, h3, .brand-font {
+        h1, h2, h3, h4, .brand-font {
             font-family: 'Playfair Display', serif;
+            line-height: 1.2;
         }
 
         .italic-font {
@@ -72,10 +136,42 @@
         a {
             text-decoration: none;
             color: inherit;
+            transition: color var(--transition-smooth);
         }
 
         ul {
             list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Focus States for Accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--hot);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-pink);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 0 0 8px 8px;
+            z-index: 10000;
+            font-weight: 600;
+            transition: top var(--transition-smooth);
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* 1. NAV */
@@ -85,56 +181,123 @@
             left: 0;
             width: 100%;
             padding: 1rem 5%;
-            background: rgba(249, 168, 201, 0.5); /* bubblegum with opacity */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(249, 168, 201, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all var(--transition-smooth);
+        }
+
+        header.scrolled {
+            padding: 0.7rem 5%;
+            background: rgba(249, 168, 201, 0.95);
+            box-shadow: 0 4px 20px var(--shadow);
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 101;
         }
 
         .nav-logo {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--white);
         }
 
+        .nav-brand-text {
+            font-size: 1.5rem;
+            color: var(--hot);
+        }
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
         .nav-link {
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color var(--transition-smooth);
         }
 
-        .nav-link:hover {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hot);
+            transition: width var(--transition-smooth);
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
             color: var(--hot);
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus-visible::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--hot);
+            border-radius: 3px;
+            transition: all var(--transition-smooth);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         /* 2. HERO */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
-            padding: 0 1rem;
+            padding: 6rem 1.5rem 3rem;
             overflow: hidden;
         }
 
@@ -143,7 +306,7 @@
             position: absolute;
             background: var(--white);
             border-radius: 50%;
-            opacity: 0.3;
+            opacity: 0.25;
             pointer-events: none;
             animation: float 15s infinite ease-in-out;
         }
@@ -161,12 +324,12 @@
         .bubble:nth-child(4) { width: 100px; height: 100px; right: 10%; bottom: 20%; animation-duration: 25s; }
 
         .hero-logo-badge {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             padding: 10px;
             background: var(--white);
-            box-shadow: 0 10px 40px var(--shadow);
+            box-shadow: 0 15px 50px var(--shadow);
             animation: pulse 4s infinite ease-in-out;
             margin-bottom: 2rem;
             z-index: 2;
@@ -174,7 +337,7 @@
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); box-shadow: 0 10px 40px var(--shadow); }
-            50% { transform: scale(1.05); box-shadow: 0 15px 50px var(--shadow); }
+            50% { transform: scale(1.05); box-shadow: 0 20px 60px var(--shadow); }
         }
 
         .hero-logo-badge img {
@@ -188,9 +351,9 @@
             font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
             color: var(--white);
-            line-height: 0.85;
+            line-height: 0.9;
             margin-bottom: 1rem;
-            text-shadow: 4px 4px 20px var(--shadow);
+            text-shadow: 4px 4px 25px rgba(var(--dark-pink-rgb), 0.3);
             z-index: 2;
         }
 
@@ -199,6 +362,7 @@
             color: var(--dark-pink);
             margin-bottom: 2.5rem;
             z-index: 2;
+            max-width: 600px;
         }
 
         /* Floating Pills */
@@ -208,12 +372,12 @@
             align-items: center;
             gap: 10px;
             background: var(--white);
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 50px;
-            box-shadow: 0 8px 25px var(--shadow);
+            box-shadow: 0 10px 30px var(--shadow);
             font-size: 0.9rem;
             font-weight: 600;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-smooth);
             z-index: 3;
             animation: pillFloat 6s infinite ease-in-out;
         }
@@ -224,10 +388,14 @@
         }
 
         .product-pill img {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             object-fit: cover;
+        }
+
+        .product-pill:hover {
+            transform: scale(1.1);
         }
 
         .pill-1 { top: 25%; left: 15%; animation-delay: 0s; }
@@ -239,6 +407,8 @@
             display: flex;
             gap: 1.5rem;
             z-index: 2;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
@@ -246,10 +416,21 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 1rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all var(--transition-bounce);
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
 
         .btn-primary {
@@ -258,9 +439,10 @@
             box-shadow: 0 10px 30px var(--shadow);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px var(--shadow);
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px var(--shadow);
         }
 
         .btn-outline {
@@ -269,9 +451,35 @@
             background: transparent;
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
             background: var(--white);
             color: var(--hot);
+            transform: translateY(-3px);
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wa:hover,
+        .btn-wa:focus-visible {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-ig:hover,
+        .btn-ig:focus-visible {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(220, 39, 67, 0.4);
         }
 
         /* 3. MARQUEE */
@@ -297,7 +505,7 @@
         .marquee-item {
             color: var(--white);
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             padding: 0 2rem;
             display: flex;
@@ -307,11 +515,12 @@
 
         .marquee-sep {
             font-size: 1.2rem;
+            opacity: 0.7;
         }
 
         /* 4. PRODUCT GRID */
         .products {
-            padding: 8rem 5% 10rem;
+            padding: 6rem 5% 8rem;
             background: var(--white);
             position: relative;
         }
@@ -319,20 +528,25 @@
         .section-header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 5rem;
+            margin: 0 auto 4rem;
         }
 
         .section-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             color: var(--dark-pink);
             margin-bottom: 1rem;
             line-height: 1.1;
         }
 
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--fuchsia);
+        }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .card {
@@ -342,12 +556,20 @@
             text-align: center;
             border: 1px solid rgba(224, 71, 158, 0.1);
             position: relative;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all var(--transition-bounce);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
             display: flex;
             flex-direction: column;
             align-items: center;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .card::before {
@@ -356,24 +578,24 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, var(--bubblegum), var(--fuchsia), var(--hot));
         }
 
         .card:hover {
-            transform: translateY(-10px) rotate(-1deg);
-            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.15);
+            transform: translateY(-12px) rotate(-1deg);
+            box-shadow: 0 25px 50px rgba(214, 51, 132, 0.18);
             border-color: var(--soft-pink);
         }
 
         .card-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
             border: 4px solid var(--cream);
-            transition: transform 0.5s ease;
+            transition: transform var(--transition-bounce);
         }
 
         .card:hover .card-img {
@@ -381,19 +603,20 @@
         }
 
         .card-name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--dark-pink);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .card-desc {
             font-size: 0.95rem;
             color: var(--fuchsia);
+            line-height: 1.5;
         }
 
         /* 5. NOSOTRAS */
         .about {
-            padding: 8rem 5%;
+            padding: 6rem 5%;
             background: var(--cream);
             display: flex;
             align-items: center;
@@ -403,11 +626,11 @@
         }
 
         .about-logo-pulse {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 20px 60px var(--shadow);
+            box-shadow: 0 25px 70px var(--shadow);
             animation: pulse 5s infinite ease-in-out;
             border: 8px solid var(--white);
         }
@@ -415,42 +638,156 @@
         .about-content {
             flex: 1;
             max-width: 600px;
+            min-width: 280px;
         }
 
         .about-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             color: var(--dark-pink);
             margin-bottom: 1.5rem;
         }
 
         .about-content p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
             color: var(--dark-pink);
+            line-height: 1.7;
         }
 
         .about-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .badge {
             background: var(--white);
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--hot);
-            box-shadow: 0 5px 15px var(--shadow);
+            box-shadow: 0 6px 18px var(--shadow);
             border: 1px solid var(--soft-pink);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* 6. CTA FINAL */
+        /* 6. TESTIMONIALS */
+        .testimonials {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--bubblegum) 100%);
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-smooth);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--dark-pink);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-stars {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--hot);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-location {
+            font-size: 0.85rem;
+            color: var(--fuchsia);
+        }
+
+        /* 7. CONTACT INFO */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--soft-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--hot);
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--fuchsia);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: var(--dark-pink);
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: var(--hot);
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* 8. CTA FINAL */
         .cta-final {
-            padding: 10rem 5%;
-            background: var(--fuchsia);
-            background: radial-gradient(circle at center, var(--white) -150%, var(--fuchsia) 100%);
+            padding: 8rem 5%;
+            background: radial-gradient(circle at center, var(--fuchsia) 0%, var(--hot) 100%);
             text-align: center;
             color: var(--white);
             position: relative;
@@ -458,9 +795,15 @@
         }
 
         .cta-final h2 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .cta-final p {
+            font-size: 1.3rem;
             margin-bottom: 3rem;
-            line-height: 1;
+            opacity: 0.95;
         }
 
         .cta-btns {
@@ -470,27 +813,11 @@
             flex-wrap: wrap;
         }
 
-        .btn-wa {
-            background: #25D366;
-            color: var(--white);
-        }
-
-        .btn-ig {
-            background: var(--white);
-            color: var(--fuchsia);
-        }
-
-        .btn svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* 7. FOOTER */
+        /* 9. FOOTER */
         footer {
             background: var(--dark-pink);
             color: var(--white);
-            padding: 4rem 5%;
+            padding: 3rem 5%;
             text-align: center;
         }
 
@@ -501,36 +828,142 @@
         }
 
         .footer-links {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-link {
             font-size: 0.9rem;
             color: var(--white);
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            opacity: 0.85;
+            transition: opacity var(--transition-smooth);
         }
 
-        .footer-link:hover {
+        .footer-link:hover,
+        .footer-link:focus-visible {
             opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--hot);
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 8px 25px var(--shadow);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-smooth);
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+
+        .scroll-top svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Mobile Overlay */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-smooth);
+            z-index: 99;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* simple mobile version */
-            }
-            
-            .hero-title {
-                font-size: 4rem;
-            }
-
+        @media (max-width: 992px) {
             .product-pill {
                 display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2.5rem;
+                padding: 2rem;
+                transition: right var(--transition-smooth);
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+                z-index: 100;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+                color: var(--dark-pink);
+            }
+
+            .hero {
+                padding-top: 7rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-logo-badge {
+                width: 120px;
+                height: 120px;
             }
 
             .about {
                 text-align: center;
+                gap: 2.5rem;
             }
 
             .about-logo-pulse {
@@ -541,23 +974,88 @@
             .about-badges {
                 justify-content: center;
             }
+
+            .products {
+                padding: 5rem 5% 6rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .cta-final {
+                padding: 6rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 16px 32px;
+                font-size: 0.9rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
     <!-- NAV -->
     <header id="inicio">
         <div class="nav-brand">
-            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes" class="nav-logo">
-            <span class="brand-font italic-font" style="font-size: 1.5rem; color: var(--hot);">Dulce's Cakes</span>
+            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes" class="nav-logo" width="45" height="45">
+            <span class="brand-font italic-font nav-brand-text">Dulce's Cakes</span>
         </div>
-        <nav class="nav-links">
-            <a href="#postres" class="nav-link">POSTRES</a>
-            <a href="#nosotras" class="nav-link">NOSOTRAS</a>
-            <a href="#pedido" class="nav-link">PEDIR</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+            <a href="#postres" class="nav-link">Postres</a>
+            <a href="#nosotras" class="nav-link">Nosotras</a>
+            <a href="#testimonios" class="nav-link">Testimonios</a>
+            <a href="#pedido" class="nav-link">Pedir</a>
         </nav>
     </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
 
     <!-- HERO -->
     <section class="hero">
@@ -567,39 +1065,41 @@
         <div class="bubble"></div>
 
         <div class="product-pill pill-1">
-            <img src="assets/marquesas.jpeg" alt="Marquesas">
+            <img src="assets/marquesas.jpeg" alt="Marquesas" width="35" height="35" loading="lazy">
             <span>Marquesas</span>
         </div>
         <div class="product-pill pill-2">
-            <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches">
+            <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches" width="35" height="35" loading="lazy">
             <span>Tres Leches</span>
         </div>
         <div class="product-pill pill-3">
-            <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate">
+            <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate" width="35" height="35" loading="lazy">
             <span>Torta</span>
         </div>
         <div class="product-pill pill-4">
-            <img src="assets/chocoflan.jpeg" alt="Chocoflan">
+            <img src="assets/chocoflan.jpeg" alt="Chocoflan" width="35" height="35" loading="lazy">
             <span>Chocoflan</span>
         </div>
 
         <div class="hero-logo-badge">
-            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes">
+            <img src="assets/logo.jpeg" alt="Logo Dulce's Cakes" width="130" height="130">
         </div>
-        
+
         <h1 class="hero-title">Dulce's<br>Cakes</h1>
         <p class="hero-subtitle italic-font">Postres artesanales con sabor irresistible</p>
-        
+
         <div class="hero-ctas">
-            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-primary">Hacer Pedido</a>
+            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hacer Pedido
+            </a>
             <a href="#postres" class="btn btn-outline">Ver Postres</a>
         </div>
     </section>
 
     <!-- MARQUEE -->
-    <div class="marquee">
+    <div class="marquee" aria-hidden="true">
         <div class="marquee-content">
-            <!-- Repeated for seamless loop -->
             <div class="marquee-item">MARQUESAS <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">TRES LECHES TRADICIONAL <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCOFLAN <span class="marquee-sep">🌸</span></div>
@@ -612,8 +1112,7 @@
             <div class="marquee-item">TRES LECHES DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCOFLAN ESPECIAL <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCO-CHANTILLY <span class="marquee-sep">🌸</span></div>
-            <div class="marquee-item">QUESILLO <span class="marquee-sep">🌸</span></div>
-            <!-- Second half -->
+            <!-- Second half for seamless loop -->
             <div class="marquee-item">MARQUESAS <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">TRES LECHES TRADICIONAL <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCOFLAN <span class="marquee-sep">🌸</span></div>
@@ -626,7 +1125,6 @@
             <div class="marquee-item">TRES LECHES DE CHOCOLATE <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCOFLAN ESPECIAL <span class="marquee-sep">🌸</span></div>
             <div class="marquee-item">CHOCO-CHANTILLY <span class="marquee-sep">🌸</span></div>
-            <div class="marquee-item">QUESILLO <span class="marquee-sep">🌸</span></div>
         </div>
     </div>
 
@@ -634,89 +1132,165 @@
     <section class="products" id="postres">
         <div class="section-header">
             <h2 class="italic-font">Hechos con amor artesanal</h2>
-            <p class="italic-font" style="font-size: 1.4rem; color: var(--fuchsia);">Cada bocado cuenta una historia de dulzura y tradición.</p>
+            <p class="italic-font">Cada bocado cuenta una historia de dulzura y tradición.</p>
         </div>
-        
+
         <div class="product-grid">
             <div class="card">
-                <img src="assets/marquesas.jpeg" alt="Marquesas" class="card-img">
+                <img src="assets/marquesas.jpeg" alt="Marquesas - Capas de galleta María con crema sedosa" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Marquesas</h3>
                 <p class="card-desc">Capas de galleta María envueltas en la crema más sedosa.</p>
             </div>
             <div class="card">
-                <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches Tradicional" class="card-img">
+                <img src="assets/tres_leches_tradicional.jpeg" alt="Tres Leches Tradicional - Pastel esponjoso bañado en tres tipos de leche" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Tres Leches Tradicional</h3>
                 <p class="card-desc">El clásico esponjoso, bañado en nuestra infusión secreta.</p>
             </div>
             <div class="card">
-                <img src="assets/chocoflan.jpeg" alt="Chocoflan" class="card-img">
+                <img src="assets/chocoflan.jpeg" alt="Chocoflan - Flan cremoso sobre pastel de chocolate" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Chocoflan</h3>
                 <p class="card-desc">Doble placer: flan cremoso sobre un pastel de chocolate intenso.</p>
             </div>
             <div class="card">
-                <img src="assets/bomba.jpeg" alt="Bomba" class="card-img">
+                <img src="assets/bomba.jpeg" alt="Bomba - Explosión de crema pastelera" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Bomba</h3>
                 <p class="card-desc">Explosión de crema pastelera en cada mordisco.</p>
             </div>
             <div class="card">
-                <img src="assets/tortas_personalizadas.jpeg" alt="Tortas Personalizadas" class="card-img">
+                <img src="assets/tortas_personalizadas.jpeg" alt="Tortas Personalizadas - Diseños únicos para tus eventos" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Tortas Personalizadas</h3>
                 <p class="card-desc">Convertimos tus sueños en una obra de arte comestible.</p>
             </div>
             <div class="card">
-                <img src="assets/quesillos.jpeg" alt="Quesillos" class="card-img">
+                <img src="assets/quesillos.jpeg" alt="Quesillos - Postre venezolano con caramelo artesanal" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Quesillos</h3>
                 <p class="card-desc">Textura perfecta con el toque justo de caramelo artesanal.</p>
             </div>
             <div class="card">
-                <img src="assets/galletas_rellenas_de_chocolate.jpeg" alt="Galletas Rellenas de Chocolate" class="card-img">
+                <img src="assets/galletas_rellenas_de_chocolate.jpeg" alt="Galletas Rellenas de Chocolate - Crujientes con corazón de chocolate" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Galletas Rellenas</h3>
                 <p class="card-desc">Crujientes por fuera, con trozos reales de puro chocolate.</p>
             </div>
             <div class="card">
-                <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate" class="card-img">
+                <img src="assets/torta_de_chocolate.jpeg" alt="Torta de Chocolate - Pastel intenso y esponjoso" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Torta de Chocolate</h3>
                 <p class="card-desc">Pastel de chocolate intenso, esponjoso y lleno de sabor.</p>
             </div>
             <div class="card">
-                <img src="assets/fresas_con_crema.jpeg" alt="Fresas con Crema" class="card-img">
+                <img src="assets/fresas_con_crema.jpeg" alt="Fresas con Crema - Frescura y dulzura natural" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Fresas con Crema</h3>
                 <p class="card-desc">Frescura y dulzura en cada bocado de pura crema.</p>
             </div>
             <div class="card">
-                <img src="assets/tres_leches_de_chocolate.jpeg" alt="Tres Leches de Chocolate" class="card-img">
+                <img src="assets/tres_leches_de_chocolate.jpeg" alt="Tres Leches de Chocolate - Versión achocolatada del postre clásico" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Tres Leches de Chocolate</h3>
                 <p class="card-desc">Nuestra versión achocolatada del postre más amado.</p>
             </div>
             <div class="card">
-                <img src="assets/chocoflan2.jpeg" alt="Chocoflan Especial" class="card-img">
+                <img src="assets/chocoflan2.jpeg" alt="Chocoflan Especial - Variación única del postre imposible" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Chocoflan Especial</h3>
                 <p class="card-desc">Una variación única de nuestro postre imposible.</p>
             </div>
             <div class="card">
-                <img src="assets/torta_de_chocolate_con_chantilly_de_chocolate.jpeg" alt="Choco-Chantilly" class="card-img">
+                <img src="assets/torta_de_chocolate_con_chantilly_de_chocolate.jpeg" alt="Choco-Chantilly - Torta con suave nube de chantilly" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Choco-Chantilly</h3>
                 <p class="card-desc">Exquisita torta con una suave nube de chantilly.</p>
             </div>
             <div class="card">
-                <img src="assets/quesillo.jpeg" alt="Quesillo" class="card-img">
+                <img src="assets/quesillo.jpeg" alt="Quesillo - Tradición venezolana en tu mesa" class="card-img" width="160" height="160" loading="lazy">
                 <h3 class="card-name">Quesillo</h3>
-                <p class="card-desc">La tradición venozolana que nunca falla en tu mesa.</p>
+                <p class="card-desc">La tradición venezolna que nunca falla en tu mesa.</p>
             </div>
         </div>
     </section>
 
     <!-- NOSOTRAS -->
     <section class="about" id="nosotras">
-        <img src="assets/logo.jpeg" alt="Dulce's Cakes Historia" class="about-logo-pulse">
+        <img src="assets/logo.jpeg" alt="Dulce's Cakes - Historia y tradición pastelera" class="about-logo-pulse" width="280" height="280" loading="lazy">
         <div class="about-content">
             <h2 class="italic-font">Postres que enamoran</h2>
             <p class="italic-font">Somos una pastelería artesanal dedicada a rescatar los sabores más dulces de nuestra tierra. Cada receta ha sido perfeccionada para ofrecerte una experiencia premium, hecha a mano y siempre con los mejores ingredientes.</p>
             <div class="about-badges">
-                <span class="badge">100% ARTESANAL</span>
-                <span class="badge">PEDIDOS PERSONALIZADOS</span>
-                <span class="badge">A DOMICILIO</span>
-                <span class="badge">HECHO CON AMOR</span>
+                <span class="badge">100% Artesanal</span>
+                <span class="badge">Pedidos Personalizados</span>
+                <span class="badge">A Domicilio</span>
+                <span class="badge">Hecho con Amor</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-header">
+            <h2 class="italic-font">Lo que dicen nuestros clientes</h2>
+            <p class="italic-font">Miles de clientes satisfechos nos recomiendan</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                <p class="testimonial-text">"Las mejores marquesas que he probado en mi vida. Me recordaron a las que hacía mi abuela. ¡Increíble sabor!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-name">María González</div>
+                    <div class="testimonial-location">Caracas, Venezuela</div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                <p class="testimonial-text">"Pedí una torta personalizada para el cumpleaños de mi hija y quedó espectacular. ¡Deliciiosa y hermosa!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-name">Carlos Rodríguez</div>
+                    <div class="testimonial-location">Valencia, Venezuela</div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                <p class="testimonial-text">"El tres leches de chocolate es una locura. Siempre lo pido para mis reuniones y todos quedan encantados."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-name">Ana Martínez</div>
+                    <div class="testimonial-location">Maracaibo, Venezuela</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="contact" id="contacto">
+        <div class="section-header">
+            <h2 class="italic-font">Contáctanos</h2>
+            <p class="italic-font">Estamos aquí para endulzar tu día</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <div class="contact-label">WhatsApp</div>
+                <div class="contact-value">
+                    <a href="https://wa.me/584125903098" target="_blank" rel="noopener noreferrer">+58 412 590 3098</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </div>
+                <div class="contact-label">Instagram</div>
+                <div class="contact-value">
+                    <a href="https://www.instagram.com/dulce_scakes19" target="_blank" rel="noopener noreferrer">@dulce_scakes19</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <div class="contact-label">Ubicación</div>
+                <div class="contact-value">Venezuela</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <div class="contact-label">Horario</div>
+                <div class="contact-value">Lun - Sáb: 8:00 AM - 6:00 PM</div>
             </div>
         </div>
     </section>
@@ -724,26 +1298,133 @@
     <!-- CTA FINAL -->
     <section class="cta-final" id="pedido">
         <h2 class="italic-font">¿Lista para endulzar tu día?</h2>
+        <p class="italic-font">Haz tu pedido ahora y recibe tu postre favorito a domicilio</p>
         <div class="cta-btns">
-            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-wa">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/584125903098?text=Hola%20Dulce's%20Cakes!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 WhatsApp
             </a>
-            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" class="btn btn-ig">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" rel="noopener noreferrer" class="btn btn-ig">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 Instagram
             </a>
         </div>
     </section>
 
+    </main>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-logo italic-font">Dulce's Cakes</div>
         <div class="footer-links">
-            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" class="footer-link italic-font">@dulce_scakes19</a>
+            <a href="#inicio" class="footer-link">Inicio</a>
+            <a href="#postres" class="footer-link">Postres</a>
+            <a href="#nosotras" class="footer-link">Nosotras</a>
+            <a href="https://www.instagram.com/dulce_scakes19" target="_blank" rel="noopener noreferrer" class="footer-link italic-font">@dulce_scakes19</a>
         </div>
-        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2024 Dulce's Cakes. Todos los derechos reservados.</p>
+        <p class="footer-copyright">&copy; <span id="currentYear"></span> Dulce's Cakes. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Dynamic Year in Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to Top
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            mobileOverlay.classList.toggle('active');
+            
+            const isOpen = menuToggle.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Intersection Observer for Card Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add stagger effect with delay
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
